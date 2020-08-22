@@ -31,5 +31,5 @@
 .sidebar__playlists {
   flex: 1;
   overflow-y: scroll;
-  margin-bottom: 65px;
+  margin-bottom: 75px;
 }
