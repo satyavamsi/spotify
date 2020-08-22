@@ -12,7 +12,7 @@ const spotify = new SpotifyWebApi();
 
 function App() {
 
-  const [{ user, token }, dispatch] = useDataLayerValue();
+  const [{ user, token, featured }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     const hash = getTokenFroUrl();
@@ -39,8 +39,30 @@ function App() {
           playlists: playlists
         })
       })
+
+      spotify.getFeaturedPlaylists().then((featured) => {
+        dispatch({
+          type: actionTypes.SET_FEATURED,
+          featured: featured
+        })
+      });
+
+
     }
   }, [])
+
+  useEffect(() => {
+    if (featured && featured.playlists) {
+      spotify.getPlaylist(featured.playlists.items[0].id)
+        .then((_playlist) => {
+          dispatch({
+            type: actionTypes.SET_TRACKS,
+            tracks: _playlist.tracks
+          })
+        })
+    }
+
+  }, [featured])
 
   console.log(user);
 
