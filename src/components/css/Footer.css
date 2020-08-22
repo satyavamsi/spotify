@@ -1,11 +1,8 @@
-import React from 'react'
-
-function Footer() {
-    return (
-        <div>
-
-        </div>
-    )
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  background-color: #282828;
+  padding: 20px;
 }
-
-export default Footer

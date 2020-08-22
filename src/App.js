@@ -12,7 +12,6 @@ const spotify = new SpotifyWebApi();
 
 function App() {
 
-
   const [{ user, token }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
@@ -41,7 +40,7 @@ function App() {
   return (
     <div className="app">
       {token ? (
-        <Player />
+        <Player spotify={spotify} />
       ) : (
           <Login />
         )}

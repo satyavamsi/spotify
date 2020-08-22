@@ -1,11 +1,7 @@
-import React from 'react'
-
-function Body() {
-    return (
-        <div>
-
-        </div>
-    )
+.body {
+  flex: 0.8;
+  height: 100vh;
+  background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
+  color: white;
+  padding: 30px;
 }
-
-export default Body
